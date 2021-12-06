@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <!-- <types>
+        <members>*</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Sport</members>
+        <members>Covid</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>StravaConnection.StravaGiovanniMaggi</members>
+        <members>CovidData.DatiCovidRaw</members>
+        <members>EmailSetting.giovanniEmail</members>
+        <name>CustomMetadata</name>
+    </types>
+    <types>
+        <members>Attivita__c</members>
+        <members>AttrezzaturaSportiva__c</members>
+        <members>Catena__c</members>
+        <members>Copertone__c</members>
+        <members>Cavo__c</members>
+        <members>DavoCovid__c</members>
+        <members>Manutenzione__c</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>Attivita__c-Bici Layout</members>
+        <members>Attivita__c-Vario Layout</members>
+        <members>AttrezzaturaSportiva__c-Bici Layout</members>
+        <members>AttrezzaturaSportiva__c-Scarpe Layout</members>
+        <members>AttrezzaturaSportiva__c-Vario Layout</members>
+        <members>Catena__c-Catena Layout</members>
+        <members>Copertone__c-Copertone Layout</members>
+        <members>Cavo__c-Cavo Layout</members>
+        <members>DatoCovid__c-Dato Covid Layout</members>
+        <members>Manutenzione__c-Manutenzione Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>Attivita__c.Bici</members>
+        <members>Attivita__c.Vario</members>
+        <members>AttrezzaturaSportiva__c.Bici</members>
+        <members>AttrezzaturaSportiva__c.Scarpe</members>
+        <members>AttrezzaturaSportiva__c.Vario</members>
+        <name>RecordType</name>
+    </types>
+    <types>
+		<members>Sport_Home_Page</members>
+		<members>Covid_Home_Page</members>
+		<name>FlexiPage</name>
+	</types>
+    <types>
+        <members>ImagesIcon</members>
+        <name>StaticResource</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>TestCertification</members>
+        <name>AuraDefinitionBundle</name>
+    </types> -->
+    <version>53.0</version>
+</Package>
