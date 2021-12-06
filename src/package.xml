@@ -38,24 +38,10 @@
         <name>CustomTab</name>
     </types>
     <types>
-        <members>Attivita__c-Bici Layout</members>
-        <members>Attivita__c-Vario Layout</members>
-        <members>AttrezzaturaSportiva__c-Bici Layout</members>
-        <members>AttrezzaturaSportiva__c-Scarpe Layout</members>
-        <members>AttrezzaturaSportiva__c-Vario Layout</members>
-        <members>Catena__c-Catena Layout</members>
-        <members>Copertone__c-Copertone Layout</members>
-        <members>Cavo__c-Cavo Layout</members>
-        <members>DatoCovid__c-Dato Covid Layout</members>
-        <members>Manutenzione__c-Manutenzione Layout</members>
         <name>Layout</name>
     </types>
     <types>
         <members>Attivita__c.Bici</members>
-        <members>Attivita__c.Vario</members>
-        <members>AttrezzaturaSportiva__c.Bici</members>
-        <members>AttrezzaturaSportiva__c.Scarpe</members>
-        <members>AttrezzaturaSportiva__c.Vario</members>
         <name>RecordType</name>
     </types>
     <types>
