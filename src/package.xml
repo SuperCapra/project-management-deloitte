@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <!-- <types>
+    <types>
         <members>*</members>
         <name>ApexClass</name>
     </types>
@@ -14,52 +14,11 @@
     </types>
     <types>
         <members>*</members>
-        <name>CustomObject</name>
-    </types>
-    <types>
-        <members>Sport</members>
-        <members>Covid</members>
-        <name>CustomApplication</name>
-    </types>
-    <types>
-        <members>StravaConnection.StravaGiovanniMaggi</members>
-        <members>CovidData.DatiCovidRaw</members>
-        <members>EmailSetting.giovanniEmail</members>
-        <name>CustomMetadata</name>
-    </types>
-    <types>
-        <members>Attivita__c</members>
-        <members>AttrezzaturaSportiva__c</members>
-        <members>Catena__c</members>
-        <members>Copertone__c</members>
-        <members>Cavo__c</members>
-        <members>DavoCovid__c</members>
-        <members>Manutenzione__c</members>
-        <name>CustomTab</name>
-    </types>
-    <types>
-        <name>Layout</name>
-    </types>
-    <types>
-        <members>Attivita__c.Bici</members>
-        <name>RecordType</name>
-    </types>
-    <types>
-		<members>Sport_Home_Page</members>
-		<members>Covid_Home_Page</members>
-		<name>FlexiPage</name>
-	</types>
-    <types>
-        <members>ImagesIcon</members>
-        <name>StaticResource</name>
-    </types>
-    <types>
-        <members>*</members>
         <name>LightningComponentBundle</name>
     </types>
     <types>
-        <members>TestCertification</members>
+        <members>*</members>
         <name>AuraDefinitionBundle</name>
-    </types> -->
+    </types>
     <version>53.0</version>
 </Package>
