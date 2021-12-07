@@ -1,0 +1,16 @@
+<apex:page standardController="Quote" sidebar="false" showHeader="false" standardStylesheets="false">
+    <apex:includeLightning />
+    <div id="quoteWizard"></div>
+    <script>
+        $Lightning.use("c:QuoteWizard", function() {
+            $Lightning.createComponent("c:lwcQuoteWizard", { 
+                quoteId: "{!Id}", 
+            },
+            "quoteWizard",
+            function(cmp, status, errorMessage) {
+                console.log('LWC Component Created.');
+                console.log('$Lightning.createComponen.errorMessage: ', errorMessage)
+            });
+        });
+    </script>
+</apex:page>
