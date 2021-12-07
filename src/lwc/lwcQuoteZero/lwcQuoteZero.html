@@ -1,3 +1,77 @@
 <template>
+    <div>
+        <section role="dialog" tabindex="-1" aria-label="Modal Quote Wizard" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" disabled={disableClose} title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse" size="small" ></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 class="slds-text-heading_medium slds-hyphenate">{title}</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around--large" id="modal-content-id-1">
+                    <template if:true={isLoading}>
+                        <div class="slds-align_absolute-center">
+                            <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+                        </div>
+                    </template>
+                    <template if:false={isLoading}>
+                        
+                    </template>
+                    <!-- <template if:false={isSelected}>
+                        <lightning-layout vertical-align="center" class="slds-align_absolute-center">
+                            <template if:true={showAlternative}>
+                                <lightning-layout-item class="slds-p-around--medium">
+                                    <lightning-button variant="brand-outline" label="Alternative Opportunity" title="Create Alternative Opportunity" onclick={handleAlternative}></lightning-button>
+                                </lightning-layout-item>
+                            </template>
+                            <template if:true={showMultiyear}>
+                                <lightning-layout-item class="slds-p-around--medium">
+                                    <lightning-button variant="brand-outline" label="Multi-year Opportunity" title="Create Multi-year Opportunity" onclick={handleMultiyear}></lightning-button>
+                                </lightning-layout-item>
+                            </template>
+                        </lightning-layout>
+                    </template>
+                    <template if:true={isSelected}>
+                        <template if:true={isAlternative}>
+                            <c-lwc-multi-opportunity-wizard-alternative
+                            opportunity={opportunity}
+                            opportunity-id={opportunityId}
+                            before-creating="true"
+                            multi-opportunity-id={multiOpportunityId}
+                            ondisableclosing={handleDisableClose}></c-lwc-multi-opportunity-wizard-alternative>
+                        </template>
+                        <template if:true={isMultiyear}>
+                            <c-lwc-multi-opportunity-wizard-multiyear
+                            class="multi-year"
+                            opportunity={opportunity}
+                            opportunity-id={opportunityId}
+                            before-creating="true"
+                            multi-opportunity-id={multiOpportunityId}
+                            oninsertsize={handleSizing}
+                            ondynamicbuttons={handleDynamicButtons}
+                            ondisableclosing={handleDisableClose}></c-lwc-multi-opportunity-wizard-multiyear>
+                        </template>
+                    </template> -->
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning-button 
+                        class="slds-p-around_small" 
+                        variant="neutral" 
+                        label="Back" 
+                        name="back" 
+                        onclick={handleBack}></lightning-button>
+                    <lightning-button 
+                        class="slds-p-around_small" 
+                        variant="brand" 
+                        disabled={disableCreate}
+                        label={labelCreate} 
+                        name="continue" 
+                        onclick={handleCreate}></lightning-button>
+                </footer>
+            </div>
+        </section>
 
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
 </template>

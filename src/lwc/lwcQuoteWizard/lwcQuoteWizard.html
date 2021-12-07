@@ -7,7 +7,8 @@
     <template if:false={isLoading}>
         <template if:true={fromZero}>
             <c-lwc-quote-zero
-                macro-arguments={macroArguments}></c-lwc-quote-zero>
+                macro-arguments={quoteWrapper.macroArguments}
+                label-fields={quoteWrapper.labelQuoteMap}></c-lwc-quote-zero>
         </template>
         <template if:false={fromZero}>
             ciao
