@@ -20,5 +20,10 @@
         <members>*</members>
         <name>AuraDefinitionBundle</name>
     </types>
+    <types>
+        <members>Quote</members>
+        <members>QuoteLineItem</members>
+        <name>CustomObject</name>
+    </types>
     <version>53.0</version>
 </Package>
