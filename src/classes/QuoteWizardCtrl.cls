@@ -11,7 +11,8 @@ public with sharing class QuoteWizardCtrl {
                         AnalysisCost__c,
                         DevelopCost__c,
                         TestCost__c,
-                        TotalDays__c
+                        TotalDays__c,
+                        MacroArguments__c
                         FROM Quote WHERE id = :quoteId];
             qw.quoteLineItemList = [SELECT Description, 
                                     Id,
@@ -25,7 +26,7 @@ public with sharing class QuoteWizardCtrl {
                                     isStandard__c,
                                     isMustToHave__c FROM QuoteLineItem WHERE QuoteId = :quoteId];
         }
-        qw.labelQuoteMap = getLabelByApiName(new List<String>{'Name','AnalysisCost__c', 'DevelopCost__c', 'TestCost__c', 'TotalDays__c'}, 'Quote');
+        qw.labelQuoteMap = getLabelByApiName(new List<String>{'Name','AnalysisCost__c', 'DevelopCost__c', 'TestCost__c', 'TotalDays__c', 'MacroArguments__c'}, 'Quote');
         qw.labelQuoteLineItemMap = getLabelByApiName(new List<String>{'Description', 'UnitPrice', 'TotalPrice', 'MacroArgument__c', 'AnalysisDays__c', 'DevelopDays__c', 'TestDays__c', 'isStandard__c', 'isMustToHave__c'}, 'QuoteLineItem');
         return JSON.serialize(qw);
     } 
@@ -37,7 +38,7 @@ public with sharing class QuoteWizardCtrl {
 
     private static List<PicklistWrapper> getListMacroArguments() {
         List<PicklistWrapper> plw = new List<PicklistWrapper>();
-        for (PicklistEntry entry : QuoteLineItem.MacroArgument__c.getDescribe().getPicklistValues()) {
+        for (PicklistEntry entry : Quote.MacroArguments__c.getDescribe().getPicklistValues()) {
             plw.add(new PicklistWrapper(entry.getLabel(),entry.getValue()));
         }
         return plw;

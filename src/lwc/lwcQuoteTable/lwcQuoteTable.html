@@ -1,3 +1,106 @@
 <template>
-
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_fixed-layout">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <template for:each={columns} for:item="column">
+                    <template if:true={column.isLarge}>
+                        <th key={column.title} scope="col" class="slds-size_1-of-1">
+                            <div class="slds-truncate slds-line-clamp" title={column.name}>{column.label}</div>
+                        </th>
+                    </template>
+                    <template if:true={column.isMedium}>
+                        <th key={column.title} scope="col" class="slds-size_1-of-2">
+                            <div class="slds-truncate slds-line-clamp" title={column.name}>{column.label}</div>
+                        </th>
+                    </template>
+                    <template if:true={column.isSmall}>
+                        <th key={column.title} scope="col" class="slds-size_1-of-3">
+                            <div class="slds-truncate slds-line-clamp" title={column.name}>{column.label}</div>
+                        </th>
+                    </template>
+                </template>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={elements} for:item="row">
+                <tr key={row.tableId} data-id={row.tableId} class="slds-hint-parent">
+                    <template for:each={row.columns} for:item="column">
+                        <td key={column.name} data-id={column.name}>
+                            <template if:true={column.isText}>
+                                <a href={column.url}>
+                                    <p class="slds-truncate" title={column.value}>
+                                        {column.value}
+                                    </p>
+                                </a>
+                            </template>
+                            <template if:true={column.isCurrency}>
+                                {column.currency} <lightning-formatted-number 
+                                value={column.value} 
+                                minimum-fraction-digits="2"></lightning-formatted-number>
+                            </template>
+                            <template if:true={column.isPlainNumber}>
+                                <p class="slds-truncate slds-line-clamp slds-margin-left" title={column.value}>
+                                    {column.value}
+                                </p>
+                            </template>
+                            <template if:true={column.isCheckbox}>
+                                <lightning-input 
+                                toggle-id="toggle"
+                                name={column.name}
+                                variant="label-hidden"
+                                disabled={column.disabled}
+                                checked={column.value}
+                                type="toggle"
+                                message-toggle-active="" 
+                                message-toggle-inactive=""
+                                onchange={handleToggle}></lightning-input>
+                            </template>
+                            <template if:true={element.isCombobox}>
+                                <lightning-combobox 
+                                name={element.name}
+                                label={element.label}
+                                value={element.value}
+                                options={element.options}
+                                placeholder={element.placeHolder}
+                                required={element.required}
+                                disabled={element.disabled}
+                                type="isCombobox"
+                                onchange={handleChange}></lightning-combobox>
+                            </template>
+                        </td>
+                    </template>
+                </tr>
+            </template>
+        </tbody>
+        <template if:true={isMultiyear}>
+            <tfoot>
+                <tr class="slds-hint-parent">
+                    <template for:each={elementsFooter} for:item="column">
+                        <template if:true={column.isText}>
+                            <td key={column.title} scope="col" class="slds-table-foot" style="text-align: right;">
+                                <div class="slds-truncate slds-line-clamp" title={column.name}><b>{column.value}</b></div>
+                            </td>
+                        </template>
+                        <template if:true={column.isPercent}>
+                            <td key={column.title} scope="col" class="slds-table-foot">
+                                <lightning-formatted-number
+                                class="slds-margin-left"
+                                value={column.value}
+                                format-style={column.formatter}
+                                maximum-fraction-digits={column.precision}></lightning-formatted-number>
+                            </td>
+                        </template>
+                        <template if:true={column.isCurrency}>
+                            <td key={column.title} scope="col" class="slds-table-foot">
+                                <b>{column.currency} <lightning-formatted-number 
+                                                    value={column.value}
+                                                    minimum-fraction-digits={column.precision}></lightning-formatted-number>
+                                </b> 
+                            </td>
+                        </template>
+                    </template>
+                </tr>
+            </tfoot>
+        </template>
+    </table>
 </template>
