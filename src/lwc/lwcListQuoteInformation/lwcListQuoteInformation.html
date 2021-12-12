@@ -1,0 +1,61 @@
+<template>
+    <div class="slds-grid slds-wrap">
+        <template for:each={quoteInformation} for:item="element">
+            <template if:true={element.isLarge}>
+                <div key={element.id} class="slds-col slds-p-around_xx-small slds-size_1-of-1">
+                    <template if:true={element.isText}>
+                        <lightning-input 
+                        name={element.name}
+                        label={element.label}
+                        value={element.value}
+                        placeholder={element.placeHolder}
+                        required={element.required}
+                        disabled={element.disabled}
+                        type="text"
+                        onchange={handleChange}></lightning-input>
+                    </template>
+                    <template if:true={element.isDual}>
+                        <lightning-dual-listbox
+                        name={element.name}
+                        label={element.label}
+                        value={element.value}
+                        options={element.options}
+                        placeholder={element.placeHolder}
+                        required={element.required}
+                        disabled={element.disabled}
+                        onchange={handleChange}></lightning-dual-listbox>
+                    </template>
+                    <template if:true={element.isCombobox}>
+                        <lightning-combobox 
+                        name={element.name}
+                        label={element.label}
+                        value={element.value}
+                        options={element.options}
+                        placeholder={element.placeHolder}
+                        required={element.required}
+                        disabled={element.disabled}
+                        onchange={handleChange}></lightning-combobox>
+                    </template>
+                </div>
+            </template>
+            <template if:true={element.isMedium}>
+            </template>
+            <template if:true={element.isSmall}>
+                <div key={element.id} class="slds-col slds-p-around_xx-small slds-size_1-of-3">
+                    <template if:true={element.isCurrency}>
+                        <lightning-input 
+                        name={element.name}
+                        label={element.label}
+                        value={element.value}
+                        placeholder={element.placeHolder}
+                        step={element.step}
+                        required={element.required}
+                        disabled={element.disabled}
+                        type="number"
+                        onchange={handleChange}></lightning-input>
+                    </template>
+                </div>
+            </template>
+        </template>
+    </div>
+</template>

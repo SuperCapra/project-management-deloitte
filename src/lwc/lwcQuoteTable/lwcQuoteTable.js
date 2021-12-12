@@ -1,3 +1,4 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, api } from 'lwc';
  
-export default class LwcQuoteTable extends LightningElement {}
+export default class LwcQuoteTable extends LightningElement {
+}

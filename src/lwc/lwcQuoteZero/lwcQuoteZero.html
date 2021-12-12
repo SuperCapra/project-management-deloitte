@@ -16,7 +16,9 @@
                         </div>
                     </template>
                     <template if:false={isLoading}>
-                        
+                        <c-lwc-list-quote-information
+                            quote-information={quoteInformation}
+                            onchange={handleSetValue}></c-lwc-list-quote-information>                        
                     </template>
                     <!-- <template if:false={isSelected}>
                         <lightning-layout vertical-align="center" class="slds-align_absolute-center">
