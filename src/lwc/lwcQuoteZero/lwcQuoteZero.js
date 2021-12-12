@@ -11,6 +11,7 @@ export default class LwcQuoteZero extends LightningElement {
 
     @track macroArgumentsSelected = []
     @track quoteInformation = [{
+        'id' : 1,
         'name' : 'name',
         'apiName' : 'Name',
         'label' : undefined,
@@ -19,43 +20,54 @@ export default class LwcQuoteZero extends LightningElement {
         'isLarge' : true,
         'isVisible' : true,
     },{
+        'id' : 2,
         'name' : 'analysisCost',
         'apiName' : 'AnalysisCost__c',
         'label' : undefined,
         'value' : undefined,
-        'isNumber' : true,
+        'isCurrency' : true,
+        'currency' : '€',
+        'step': '0.01',
         'isSmall' : true,
         'isVisible' : true
     },{
+        'id' : 3,
         'name' : 'developCost',
         'apiName' : 'DevelopCost__c',
         'label' : undefined,
         'value' : undefined,
-        'isNumber' : true,
+        'isCurrency' : true,
+        'currency' : '€',
+        'step': '0.01',
         'isSmall' : true,
         'isVisible' : true
     },{
+        'id' : 4,
         'name' : 'testCost',
         'apiName' : 'TestCost__c',
         'label' : undefined,
         'value' : undefined,
-        'isNumber' : true,
+        'isCurrency' : true,
+        'currency' : '€',
+        'step': '0.01',
         'isSmall' : true,
         'isVisible' : true
     },{
+        'id' : 5,
         'name' : 'macroArguments',
         'apiName' : 'MacroArguments__c',
         'label' : undefined,
+        'isLarge' : true,
         'value' : undefined,
-        'isCombobox' : true,
+        'isDual' : true,
         'options' : [],
         'isNumber' : true,
         'isVisible' : true
     }]
 
+    // for the macro arguments si potrebbe fare un oggetto e vado a prendere i macro argomenti da lì, così si può gestire il tutto da lì, quindi l'aggiunta e via dicendo
+
     connectedCallback() {
-        console.log('hey fromzero!')
-        console.log('hey fromzero!', JSON.parse(JSON.stringify(this.macroArguments)))
         for(let element of this.quoteInformation) {
             element.label = this.labelFields[element.apiName]
             if(element.apiName === 'MacroArguments__c') element.options = this.macroArguments
@@ -74,6 +86,14 @@ export default class LwcQuoteZero extends LightningElement {
 
     handleCreate() {
 
+    }
+
+    handleSetValue(event) {
+        let detail = event.detail
+        console.log('handleSetValue: ', JSON.parse(JSON.stringify(event.detail)))
+        let indexName = this.quoteInformation.findIndex(x => x.name === detail.name)
+        if(indexName > -1) this.quoteInformation[indexName].value = detail.value
+        console.log('quoteInformation: ', JSON.parse(JSON.stringify(this.quoteInformation)))
     }
 
     navigateBack() {
