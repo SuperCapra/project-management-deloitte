@@ -12,6 +12,7 @@ export default class LwcQuoteZero extends LightningElement {
     @track macroArgumentsSelected = []
     @track quoteInformation = [{
         'id' : 1,
+        'required' : true,
         'name' : 'name',
         'apiName' : 'Name',
         'label' : undefined,
@@ -21,6 +22,7 @@ export default class LwcQuoteZero extends LightningElement {
         'isVisible' : true,
     },{
         'id' : 2,
+        'required' : true,
         'name' : 'analysisCost',
         'apiName' : 'AnalysisCost__c',
         'label' : undefined,
@@ -32,6 +34,7 @@ export default class LwcQuoteZero extends LightningElement {
         'isVisible' : true
     },{
         'id' : 3,
+        'required' : true,
         'name' : 'developCost',
         'apiName' : 'DevelopCost__c',
         'label' : undefined,
@@ -43,6 +46,7 @@ export default class LwcQuoteZero extends LightningElement {
         'isVisible' : true
     },{
         'id' : 4,
+        'required' : true,
         'name' : 'testCost',
         'apiName' : 'TestCost__c',
         'label' : undefined,
@@ -54,6 +58,7 @@ export default class LwcQuoteZero extends LightningElement {
         'isVisible' : true
     },{
         'id' : 5,
+        'required' : true,
         'name' : 'macroArguments',
         'apiName' : 'MacroArguments__c',
         'label' : undefined,
@@ -94,6 +99,15 @@ export default class LwcQuoteZero extends LightningElement {
         let indexName = this.quoteInformation.findIndex(x => x.name === detail.name)
         if(indexName > -1) this.quoteInformation[indexName].value = detail.value
         console.log('quoteInformation: ', JSON.parse(JSON.stringify(this.quoteInformation)))
+        this.checkCanSave()
+    }
+
+    checkCanSave() {
+        let canSave = true
+        for(let element of this.quoteInformation) {
+            if(element.required && !element.value) canSave = false
+        }
+        this.disableCreate = !canSave
     }
 
     navigateBack() {
